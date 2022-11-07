@@ -2,7 +2,6 @@ package com.example.test_springboot_app.service.impl;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.List;
 import com.example.test_springboot_app.model.User;
 import com.example.test_springboot_app.repository.UserRepository;
 import com.example.test_springboot_app.service.UserService;
@@ -23,18 +22,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User save(User user) {
-        return userRepository.save(user);
-    }
-
-    @Override
-    public User findUserInfo(long id) {
+    public User findUserById(long id) {
         return userRepository.findById(id).orElseThrow(
                 () -> new RuntimeException("no such user with id: " + id));
-    }
-
-    @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
     }
 }

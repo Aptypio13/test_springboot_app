@@ -1,12 +1,13 @@
 package com.example.test_springboot_app.model;
 
 import lombok.Data;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -16,5 +17,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private int age;
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
 }
